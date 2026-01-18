@@ -4,9 +4,26 @@ import Fieldset from '../Fieldset';
 import InputText from '../InputText';
 import styles from './MovieSection.module.css';
 import MovieList from '../MovieList';
-import { MOVIES_MOCK } from '../../mocks/movies';
+import { useEffect, useState } from 'react';
+import type { Movie } from '../../types';
+import { getMovies } from '../../api';
 
 const MovieSection = () => {
+  const [movies, setMovies] = useState<Movie[]>([]);
+
+  const fetchMovies = async () => {
+    try {
+      const movies = await getMovies();
+      setMovies(movies);
+    } catch (error) {
+      console.error('Erro ao buscar filmes', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchMovies();
+  });
+
   return (
     <main>
       <section className={styles.container}>
@@ -18,7 +35,7 @@ const MovieSection = () => {
         </Fieldset>
 
         <h1 className={styles.titulo}>Em cartaz</h1>
-        <MovieList movies={MOVIES_MOCK} />
+        <MovieList movies={movies} />
       </section>
     </main>
   );
