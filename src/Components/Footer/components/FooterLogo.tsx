@@ -1,5 +1,5 @@
-import Logo from '../Logo';
-import styles from './Footer.module.css';
+import Logo from '../../Logo';
+import styles from '../Footer.module.css';
 
 const FooterLogo = () => {
   return (
