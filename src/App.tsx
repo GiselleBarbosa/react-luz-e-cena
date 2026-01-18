@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <Header />
-      <Banner src="../public/images/Banners/banner.png" alt="Banner" />
+      <Banner src="../images/Banners/banner.png" alt="Banner" />
       <MovieSection />
     </>
   );
