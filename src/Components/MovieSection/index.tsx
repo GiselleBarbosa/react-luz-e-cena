@@ -8,6 +8,7 @@ import useFetchMovies from '../../hooks/useFetchMovies';
 
 const MovieSection = () => {
   const { movies, isLoading, error } = useFetchMovies();
+
   return (
     <main>
       <section className={styles.container}>
@@ -19,7 +20,10 @@ const MovieSection = () => {
         </Fieldset>
 
         <h1 className={styles.titulo}>Em cartaz</h1>
-        <MovieList movies={movies} />
+
+        {isLoading && <p>Carregando filmes...</p>}
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+        {!isLoading && !error && <MovieList movies={movies} />}
       </section>
     </main>
   );
