@@ -1,6 +1,6 @@
-import Banner from './Components/Banner';
-import Header from './Components/Header';
-import MovieSection from './Components/MovieSection';
+import Banner from './components/Banner';
+import Header from './components/Header';
+import MovieSection from './components/MovieSection';
 
 function App() {
   return (
